@@ -5,7 +5,7 @@
 # Munki Server URL
 munki_enroll_url="http://munki.test.internal/munki-enroll/enroll.php"
 
-# Target volumes - this should be Macintosh HD - but let DS give us the variable (working on)
+# Target volume
 target_volume="/Volumes/Macintosh\ HD"
 
 
