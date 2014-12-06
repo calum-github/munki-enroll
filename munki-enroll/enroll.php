@@ -29,7 +29,7 @@ $room = $_GET["room"];
 if ( file_exists( '../manifests/' . $client_identifier_path . $hostname ) )
     {
         echo "###-EXISTS-### Computer manifest already exists. Bailing out here.";
-        exit()
+        exit();
     }
 else
     {
