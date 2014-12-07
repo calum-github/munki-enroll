@@ -107,7 +107,7 @@ if ( file_exists( "../manifests/$region/$school_name/$building/$building_manifes
 else
     {
         echo "###-CREATED-### Building manifest NOT present, creating it now.";
-        // Create the new manifest for the Room
+        // Create the new manifest for the Building
         $plist = new CFPropertyList();
         $plist->add( $dict = new CFDictionary() );
         // Add the manifest to production catalog
@@ -128,7 +128,7 @@ if ( file_exists( "../manifests/$region/$school_name/$school_manifest" ) )
 else
     {
         echo "###-CREATED-### School manifest NOT present, creating it now.";
-        // Create the new manifest for the Room
+        // Create the new manifest for the School
         $plist = new CFPropertyList();
         $plist->add( $dict = new CFDictionary() );
         // Add the manifest to production catalog
@@ -149,7 +149,7 @@ if ( file_exists( "../manifests/$region/$region_manifest" ) )
 else
     {
         echo "###-CREATED-### Region manifest NOT present, creating it now.";
-        // Create the new manifest for the Room
+        // Create the new manifest for the Region
         $plist = new CFPropertyList();
         $plist->add( $dict = new CFDictionary() );
         // Add the manifest to production catalog
