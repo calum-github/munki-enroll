@@ -1,9 +1,9 @@
 <?php
 
 // Munki Enroll Rebooted!
-// Version 1.0
+// Version 1.1
 // Calum Hunter
-// 5-Dec-2014
+// 5-Feb-2015
 // Expanded upon the work by Cody Eding
 // github.com/edingc
 
@@ -11,13 +11,27 @@
 require_once( 'cfpropertylist-1.1.2/CFPropertyList.php' );
 
 // Get the variables passed by the enroll script
+// Here we get the path of the clients manifest
+// ie ../manifests/$client_identifier
+// which is ../manifests/$region/$school_name/$building/$level/$room/Clients
+// We have the hostname which will be the name of the clients actual manifest
 $client_identifier_path = $_GET["client_identifier_path"];
 $hostname = $_GET["hostname"];
+//
+// Here need to get the names of the manifests for each folder
+// ie. The manifest that exists in the directory called $school_name 
+// is called $school_manifest
 $region_manifest = $_GET["region_manifest"];
 $school_manifest = $_GET["school_manifest"];
 $building_manifest = $_GET["building_manifest"];
 $level_manifest = $_GET["level_manifest"];
 $room_manifest = $_GET["room_manifest"];
+
+// *****   Testing!!!
+$additionals = $_GET["additionals"];
+
+//
+// Here we need to get the names of the directories inside manifests
 $region = $_GET["region"];
 $school_name = $_GET["school_name"];
 $building = $_GET["building"];
@@ -52,6 +66,7 @@ else
         // Add parent manifest to included_manifests to achieve waterfall effect
         $dict->add( 'included_manifests', $array = new CFArray() );
         $array->add( new CFString( "$region/$school_name/$building/$level/$room/$room_manifest" ) );
+        $array->add( new CFString( "$additionals" ) );
         
         // Save the newly created plist
         $plist->saveXML( '../manifests/' . $client_identifier_path . $hostname );
